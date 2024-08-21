@@ -170,7 +170,7 @@ def getS3cr3tx(strInput):
         EorD_Header="d"
         Input_Header=strInput
         URL_ROOT = os.getenv("s3cr3tx_URL")
-        result3 = requests.get(URL_ROOT,headers={"Accept": DOC_FORMAT ,"Email": Email_Header,"APIToken":API_Token_Header,"AuthCode":Auth_Code_Header,"EorD":EorD_Header,"Input":Input_Header })
+        result3 = requests.get(URL_ROOT,headers={"Accept": DOC_FORMAT ,"Email": Email_Header,"APIToken":API_Token_Header,"AuthCode":Auth_Code_Header,"EorD":EorD_Header,"Input":Input_Header }, timeout=60)
         s3cr3tx=result3.text
         return s3cr3tx
     except Exception as err:
