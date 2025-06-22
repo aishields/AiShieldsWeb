@@ -1,6 +1,7 @@
 from rake_nltk import Rake
 import nltk
 import subprocess
+from security import safe_requests
 
 
 nltk.download('punkt')
@@ -148,7 +149,7 @@ class OverrelianceDataSanitizer():
                     print(link)
                     
                     try:
-                        response = requests.get(link, headers=self.headers, timeout=timeout)
+                        response = safe_requests.get(link, headers=self.headers, timeout=timeout)
                         html_content = response.content
 
                         #quick and dirty, but not great
